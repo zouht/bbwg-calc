@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/lbsc/lbsc",
+    "pages/bs/bs",
+    "pages/lz/lz",
+    "pages/yxzb/yxzb",
+    "pages/hj/hj"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1a2a3a",
+    "navigationBarTitleText": "计算工具",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0f1a24"
+  }
+}

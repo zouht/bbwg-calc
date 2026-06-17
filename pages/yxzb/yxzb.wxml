@@ -1,0 +1,37 @@
+<view class="card">
+  <view class="title-section">
+    <navigator url="/pages/index/index" class="back-btn">← 返回主页</navigator>
+    <view class="title-text">📊 英雄装备升级材料计算</view>
+    <view class="sub">自动计算锤子 / 秘银 / 橙装消耗</view>
+  </view>
+
+  <view class="input-group">
+    <text class="input-label">当前等级</text>
+    <picker mode="selector" range="{{levelNames}}" value="{{currIndex}}" bindchange="onCurrChange">
+      <view class="picker-text">{{levelNames[currIndex]}}</view>
+    </picker>
+  </view>
+
+  <view class="input-group">
+    <text class="input-label">目标等级</text>
+    <picker mode="selector" range="{{levelNames}}" value="{{targetIndex}}" bindchange="onTargetChange">
+      <view class="picker-text">{{levelNames[targetIndex]}}</view>
+    </picker>
+  </view>
+
+  <button class="calc-btn" bindtap="onCalc">🧮 立即计算消耗</button>
+
+  <view class="err" wx:if="{{errorMsg}}">{{errorMsg}}</view>
+
+  <view class="result-area" wx:if="{{showResult}}">
+    <view class="result-label">总消耗材料</view>
+    <view class="result-item"><text>锤子</text><text>{{rHammer}}</text></view>
+    <view class="result-item"><text>秘银</text><text>{{rSilver}}</text></view>
+    <view class="result-item"><text>橙装</text><text>{{rOrange}}</text></view>
+    <view class="detail">{{rDetail}}</view>
+  </view>
+
+  <view class="footer-sponsor-container">
+    <view class="sponsor-footer">🎖️ 113AKA 友情赞助 · 专业计算工具 🎖️</view>
+  </view>
+</view>

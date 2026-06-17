@@ -1,0 +1,73 @@
+.card {
+  background: rgba(255,255,255,0.96);
+  border-radius: 56rpx;
+  box-shadow: 0 25rpx 45rpx rgba(0,0,0,0.25);
+  padding: 28rpx 24rpx 36rpx;
+}
+.title-section { text-align: center; margin-bottom: 28rpx; }
+.title-text { font-size: 36rpx; font-weight: 700; margin: 10rpx 0; color: #1f3b4c; }
+.sub {
+  font-size: 26rpx; color: #4a6272; background: #eef2f5;
+  padding: 8rpx 20rpx; border-radius: 40rpx; display: inline-block; font-weight: 500;
+}
+.back-btn {
+  display: inline-block; margin-bottom: 16rpx; padding: 8rpx 20rpx;
+  background: #eef3f7; border-radius: 40rpx; font-size: 26rpx; color: #1e6f8c; font-weight: 500;
+}
+.input-group {
+  background: #f8fafc; border-radius: 48rpx; padding: 14rpx 24rpx;
+  margin-bottom: 20rpx; display: flex; align-items: center;
+  justify-content: space-between; border: 2rpx solid #e2edf2;
+}
+.input-label {
+  font-weight: 600; color: #1e2f3a; font-size: 28rpx;
+  background: #e9f0f3; padding: 10rpx 20rpx; border-radius: 40rpx;
+}
+.time-inputs { display: flex; align-items: center; }
+.time-input {
+  border: none; font-size: 36rpx; font-weight: 600;
+  width: 100rpx; text-align: center; color: #0b2b38;
+}
+.colon { font-size: 40rpx; font-weight: 700; color: #7f9aa8; margin: 0 6rpx; }
+.hint { font-size: 22rpx; color: #6b8a9c; text-align: center; margin: -10rpx 0 20rpx; }
+.quick-row { display: flex; gap: 16rpx; margin-bottom: 28rpx; justify-content: center; flex-wrap: wrap; }
+.quick-btn {
+  background: #eef3f7 !important; border: none; padding: 12rpx 28rpx !important;
+  border-radius: 60rpx; font-weight: 500; font-size: 24rpx !important; color: #1f5e74 !important;
+  margin: 0 !important; line-height: 1.5 !important;
+}
+.quick-btn::after { border: none; }
+.calc-btn {
+  background: linear-gradient(105deg, #1e6f8c, #0e4b62) !important;
+  width: 100%; border: none; padding: 24rpx 0 !important; border-radius: 60rpx;
+  color: white !important; font-size: 32rpx !important; font-weight: 700;
+  margin: 16rpx 0 24rpx; box-shadow: 0 8rpx 0 #0a3140; line-height: 1.5 !important;
+}
+.calc-btn::after { border: none; }
+.result-area {
+  background: #0f212e; border-radius: 44rpx; padding: 24rpx;
+  margin-top: 16rpx;
+}
+.result-label {
+  font-size: 24rpx; color: #9bbecf; text-align: center;
+  margin-bottom: 16rpx; letter-spacing: 2rpx;
+}
+.result-value {
+  font-size: 48rpx; font-weight: 800; text-align: center;
+  color: #f2e8cf; background: #03161f; padding: 20rpx;
+  border-radius: 48rpx;
+}
+.detail-formula {
+  font-size: 20rpx; text-align: center; color: #789cae; margin-top: 16rpx;
+}
+.footer-note {
+  text-align: center; font-size: 22rpx; color: #6a8798; margin-top: 20rpx;
+}
+.footer-sponsor-container {
+  display: flex; justify-content: center; margin-top: 20rpx;
+}
+.sponsor-footer {
+  font-size: 24rpx; font-weight: 600;
+  background: rgba(30,55,70,0.1); padding: 10rpx 20rpx;
+  border-radius: 60rpx; color: #2c6f8c;
+}

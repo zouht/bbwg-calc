@@ -1,0 +1,36 @@
+<view class="card">
+  <view class="title-section">
+    <navigator url="/pages/index/index" class="back-btn">← 返回主页</navigator>
+    <view class="title-text">💎 宝石等级材料计算</view>
+    <view class="sub">自动计算 宝石手册 / 宝石图纸 消耗</view>
+  </view>
+
+  <view class="input-group">
+    <text class="input-label">当前等级</text>
+    <picker mode="selector" range="{{levelNames}}" value="{{currIndex}}" bindchange="onCurrChange">
+      <view class="picker-text">{{levelNames[currIndex]}}</view>
+    </picker>
+  </view>
+
+  <view class="input-group">
+    <text class="input-label">目标等级</text>
+    <picker mode="selector" range="{{levelNames}}" value="{{targetIndex}}" bindchange="onTargetChange">
+      <view class="picker-text">{{levelNames[targetIndex]}}</view>
+    </picker>
+  </view>
+
+  <button class="calc-btn" bindtap="onCalc">🧮 立即计算消耗</button>
+
+  <view class="err" wx:if="{{errorMsg}}">{{errorMsg}}</view>
+
+  <view class="result-area" wx:if="{{showResult}}">
+    <view class="result-label">材料总消耗</view>
+    <view class="result-item"><text>宝石手册</text><text>{{resBook}}</text></view>
+    <view class="result-item"><text>宝石图纸</text><text>{{resDraw}}</text></view>
+    <view class="detail">{{upgradeDetail}}</view>
+  </view>
+
+  <view class="footer-sponsor-container">
+    <view class="sponsor-footer">🎖️ 113AKA 友情赞助 · 专业计算工具 🎖️</view>
+  </view>
+</view>

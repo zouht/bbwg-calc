@@ -1,0 +1,47 @@
+<view class="card">
+  <view class="title-section">
+    <navigator url="/pages/index/index" class="back-btn">← 返回主页</navigator>
+    <view class="title-text">🏰 黄金建筑消耗计算</view>
+    <view class="sub">自动计算各建筑升级黄金消耗 + 总计</view>
+    <view class="sub sub-line">黄金1前置: 使馆30级,学院30级</view>
+    <view class="sub sub-line">黄金2前置: 使馆,骑兵营黄金1级</view>
+    <view class="sub sub-line">黄金3前置: 使馆,步兵营黄金2级</view>
+    <view class="sub sub-line">黄金4前置: 使馆,弓兵营黄金3级</view>
+    <view class="sub sub-line">黄金5前置: 使馆,骑兵营黄金4级</view>
+  </view>
+
+  <scroll-view scroll-y class="scroll-wrap">
+    <view class="building-group" wx:for="{{buildings}}" wx:key="name">
+      <view class="building-title">{{item.name}}</view>
+      <view class="level-inputs">
+        <text class="input-label-sm">当前</text>
+        <picker mode="selector" range="{{levelList}}" value="{{item.currIndex}}" bindchange="onCurrChange" data-idx="{{index}}">
+          <view class="picker-text">{{levelList[item.currIndex]}}</view>
+        </picker>
+        <text class="input-label-sm">目标</text>
+        <picker mode="selector" range="{{levelList}}" value="{{item.tarIndex}}" bindchange="onTarChange" data-idx="{{index}}">
+          <view class="picker-text">{{levelList[item.tarIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="btn-container">
+    <button class="calc-btn" bindtap="onCalc">🧮 计算</button>
+    <button class="reset-btn" bindtap="onReset">🔄 重置</button>
+  </view>
+
+  <view class="err" wx:if="{{errorMsg}}">{{errorMsg}}</view>
+
+  <view class="result-area" wx:if="{{showResult}}">
+    <view class="result-label">各建筑黄金消耗 & 总计</view>
+    <view class="single-result" wx:for="{{buildings}}" wx:key="name">
+      <text>{{item.name}}</text><text>{{item.result}}</text>
+    </view>
+    <view class="total-result"><text>所有建筑总计</text><text>{{resTotal}}</text></view>
+  </view>
+
+  <view class="footer-sponsor-container">
+    <view class="sponsor-footer">🎖️ 113AKA 友情赞助 · 专业计算工具 🎖️</view>
+  </view>
+</view>

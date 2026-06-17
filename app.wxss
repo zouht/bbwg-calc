@@ -1,0 +1,7 @@
+page {
+  background: linear-gradient(145deg, #1a2a3a 0%, #0f1a24 100%);
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  padding: 16rpx;
+  box-sizing: border-box;
+}

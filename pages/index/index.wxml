@@ -1,0 +1,22 @@
+<view class="card">
+  <view class="title-section">
+    <view class="title-text">⚔️ 练兵扩容时长计算器</view>
+    <navigator url="/pages/lbsc/lbsc" class="main-btn">📊 进入计算工具</navigator>
+
+    <view class="title-text">⚔️ 宝石等级计算器</view>
+    <navigator url="/pages/bs/bs" class="main-btn">📊 进入计算工具</navigator>
+
+    <view class="title-text">⚔️ 领主装备等级计算器</view>
+    <navigator url="/pages/lz/lz" class="main-btn">📊 进入计算工具</navigator>
+
+    <view class="title-text">⚔️ 英雄装备升级材料计算器</view>
+    <navigator url="/pages/yxzb/yxzb" class="main-btn">📊 进入计算工具</navigator>
+
+    <view class="title-text">⚔️ 黄金消耗计算器</view>
+    <navigator url="/pages/hj/hj" class="main-btn">📊 进入计算工具</navigator>
+  </view>
+
+  <view class="footer-sponsor-container">
+    <view class="sponsor-footer">🎖️ 113AKA 友情赞助 · 专业计算工具 🎖️</view>
+  </view>
+</view>
