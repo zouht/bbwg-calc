@@ -10,7 +10,7 @@
     <view class="time-inputs">
       <input type="number" class="time-input" value="{{hours}}" bindinput="onHoursInput" />
       <text class="colon">:</text>
-      <input type="number" class="time-input" value="{{minutes}}" bindinput="onMinutesInput" />
+      <input type="digit" maxlength="2" class="time-input" value="{{minutesDisplay}}" bindinput="onMinutesInput" bindblur="onMinutesBlur" />
     </view>
   </view>
   <view class="hint">✨ 小时范围 0~23 | 分钟 0~59</view>
