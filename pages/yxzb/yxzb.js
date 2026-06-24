@@ -46,16 +46,24 @@ Page({
   },
 
   onCurrChange(e) {
-    this.setData({ currIndex: parseInt(e.detail.value) })
+
+    this.setData({ currIndex: parseInt(e.detail.value, 10) })
   },
 
   onTargetChange(e) {
-    this.setData({ targetIndex: parseInt(e.detail.value) })
+    this.setData({ targetIndex: parseInt(e.detail.value, 10) })
   },
 
   onCalc() {
-    const c = all[this.data.currIndex]
-    const t = all[this.data.targetIndex]
+    const currIdx = parseInt(this.data.currIndex, 10)
+    const tarIdx = parseInt(this.data.targetIndex, 10)
+    const c = all[currIdx]
+    const t = all[tarIdx]
+
+    if (!c || !t) {
+      this.setData({ errorMsg: '❌ 请选择有效的等级', showResult: false })
+      return
+    }
 
     if (weight(t) <= weight(c)) {
       this.setData({ errorMsg: '❌ 目标等级不能低于当前等级', showResult: false })

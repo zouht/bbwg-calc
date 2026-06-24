@@ -36,16 +36,23 @@ Page({
   },
 
   onCurrChange(e) {
-    this.setData({ currIndex: parseInt(e.detail.value) })
+    this.setData({ currIndex: parseInt(e.detail.value, 10) })
   },
 
   onTargetChange(e) {
-    this.setData({ targetIndex: parseInt(e.detail.value) })
+    this.setData({ targetIndex: parseInt(e.detail.value, 10) })
   },
 
   onCalc() {
-    const curr = gemData[this.data.currIndex]
-    const tar = gemData[this.data.targetIndex]
+    const currIdx = parseInt(this.data.currIndex, 10)
+    const tarIdx = parseInt(this.data.targetIndex, 10)
+    const curr = gemData[currIdx]
+    const tar = gemData[tarIdx]
+
+    if (!curr || !tar) {
+      this.setData({ errorMsg: '❌ 请选择有效的等级', showResult: false })
+      return
+    }
 
     if (tar.level <= curr.level) {
       this.setData({ errorMsg: '❌ 目标等级不能低于或等于当前等级', showResult: false })
