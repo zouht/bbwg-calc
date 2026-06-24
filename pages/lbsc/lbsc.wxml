@@ -32,7 +32,7 @@
   <button class="calc-btn" bindtap="onCalc">⚡ 计算开始练兵时间 ⚡</button>
 
   <view class="result-area" wx:if="{{resultDisplay}}">
-    <view class="result-label">📊 最晚开始练兵时间</view>
+    <view class="result-label">📊开始练兵时间</view>
     <view class="result-value">{{resultDisplay}}</view>
     <view class="result-sub">总练兵时长 {{totalDurationText}}</view>
   </view>
