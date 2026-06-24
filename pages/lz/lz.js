@@ -71,11 +71,11 @@ Page({
   },
 
   onCurrChange(e) {
-    this.setData({ currIndex: e.detail.value })
+    this.setData({ currIndex: parseInt(e.detail.value) })
   },
 
   onTargetChange(e) {
-    this.setData({ targetIndex: e.detail.value })
+    this.setData({ targetIndex: parseInt(e.detail.value) })
   },
 
   onCalc() {
