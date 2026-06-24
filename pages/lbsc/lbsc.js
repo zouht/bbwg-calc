@@ -61,7 +61,7 @@ Page({
     const minsStr = this.pad2(displayMins)
 
     const timeStr = displayHrs + ':' + minsStr
-    const dayPrefix = isNextDay ? '第二天 ' : '当天 '
+    const dayPrefix = isNextDay ? '前一天 ' : '当天 '
     const resultDisplay = dayPrefix + timeStr + ' ⏳'
 
     const singleFixed = singleDuration.toFixed(4)

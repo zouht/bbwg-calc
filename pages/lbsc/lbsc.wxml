@@ -16,10 +16,10 @@
   <view class="hint">✨ 小时范围 0~23 | 分钟 0~59</view>
 
   <view class="quick-row">
-    <button class="quick-btn" bindtap="onQuick" data-hours="12" data-mins="35">📌 12:35</button>
-    <button class="quick-btn" bindtap="onQuick" data-hours="8" data-mins="20">📌 8:20</button>
     <button class="quick-btn" bindtap="onQuick" data-hours="6" data-mins="0">📌 6:00</button>
+    <button class="quick-btn" bindtap="onQuick" data-hours="8" data-mins="20">📌 8:20</button>
     <button class="quick-btn" bindtap="onQuick" data-hours="10" data-mins="45">📌 10:45</button>
+    <button class="quick-btn" bindtap="onQuick" data-hours="12" data-mins="35">📌 12:35</button>
   </view>
 
   <button class="calc-btn" bindtap="onCalc">⚡ 计算开始练兵时间 ⚡</button>
@@ -27,14 +27,16 @@
   <view class="result-area">
     <view class="result-label">📊 开始练兵时间 (公式结果)</view>
     <view class="result-value">{{resultDisplay}}</view>
-    <view class="detail-formula">{{formulaDetail}}</view>
+    <!-- <view class="detail-formula">{{formulaDetail}}</view> -->
   </view>
 
+  <!--
   <view class="footer-note">
     ※ 公式: 24 − [(单次练兵小时数 + 分钟/60) × 3 − 24]
   </view>
+  -->
 
   <view class="footer-sponsor-container">
-    <view class="sponsor-footer">🎖️ 113AKA 友情赞助 · 专业练兵计算 🎖️</view>
+    <view class="sponsor-footer">🎖️ 113AKA 友情赞助 · 招移民落地送八级矿 🎖️</view>
   </view>
 </view>
