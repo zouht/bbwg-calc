@@ -27,8 +27,8 @@
   </scroll-view>
 
   <view class="btn-container">
-    <button class="calc-btn" bindtap="onCalc">🧮 计算</button>
     <button class="reset-btn" bindtap="onReset">🔄 重置</button>
+    <button class="calc-btn" bindtap="onCalc">🧮 计算</button>
   </view>
 
   <view class="err" wx:if="{{errorMsg}}">{{errorMsg}}</view>

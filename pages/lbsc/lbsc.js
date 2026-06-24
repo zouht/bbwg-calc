@@ -55,5 +55,12 @@ Page({
 
   onLoad() {
     this.doCalc(12, 35)
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '练兵扩容时长计算器',
+      path: '/pages/lbsc/lbsc'
+    }
   }
 })

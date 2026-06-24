@@ -100,5 +100,12 @@ Page({
       showResult: false,
       resTotal: 0
     })
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '黄金消耗计算器',
+      path: '/pages/hj/hj'
+    }
   }
 })

@@ -67,5 +67,12 @@ Page({
       resDraw: totalDraw,
       upgradeDetail: '升级路径：' + stepList.join(' → ')
     })
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '宝石等级计算器',
+      path: '/pages/bs/bs'
+    }
   }
 })

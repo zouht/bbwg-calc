@@ -91,5 +91,12 @@ Page({
       rOrange: o,
       rDetail: '升级：' + log.join(' → ')
     })
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '英雄装备升级材料计算器',
+      path: '/pages/yxzb/yxzb'
+    }
   }
 })

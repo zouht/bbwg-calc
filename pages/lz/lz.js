@@ -104,5 +104,12 @@ Page({
       res3: totalPaper,
       upgradeDetail: '升级路径：' + stepList.join(' → ')
     })
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '领主装备等级计算器',
+      path: '/pages/lz/lz'
+    }
   }
 })
