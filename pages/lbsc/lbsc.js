@@ -3,8 +3,9 @@ Page({
     hours: 12,
     minutes: 35,
     minutesDisplay: '35',
-    resultDisplay: '— : — —',
-    formulaDetail: '公式: 24 - ((H + M/60) × 3 - 24)'
+    targetDate: '',
+    resultDisplay: '',
+    totalDurationText: ''
   },
 
   pad2(v) {
@@ -37,45 +38,51 @@ Page({
     this.setData({ minutes: v, minutesDisplay: this.pad2(v) })
   },
 
+  onDateChange(e) {
+    this.setData({ targetDate: e.detail.value })
+  },
+
   onQuick(e) {
     const h = parseInt(e.currentTarget.dataset.hours)
     const m = parseInt(e.currentTarget.dataset.mins)
     this.setData({ hours: h, minutes: m, minutesDisplay: this.pad2(m) })
-    this.doCalc(h, m)
   },
 
   onCalc() {
-    this.doCalc(this.data.hours, this.data.minutes)
-  },
+    const { hours, minutes, targetDate } = this.data
 
-  doCalc(hours, minutes) {
+    if (!targetDate) {
+      wx.showToast({ title: '请先选择截止日期', icon: 'none' })
+      return
+    }
+
+    // 总练兵时长 = 单次时长 × 3
     const singleDuration = hours + minutes / 60.0
-    const innerValue = singleDuration * 3 - 24
-    let totalHours = 24 - innerValue
-    if (totalHours < 0) totalHours = 0
+    const totalHours = singleDuration * 3
 
-    const isNextDay = totalHours >= 24
-    const displayHrs = Math.floor(totalHours % 24)
-    let displayMins = Math.round((totalHours * 60) % 60)
-    if (displayMins >= 60) displayMins = 0
-    const minsStr = this.pad2(displayMins)
+    // 截止日期设为当天 00:00:00
+    const parts = targetDate.split('-')
+    const endDate = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]), 0, 0, 0)
 
-    const timeStr = displayHrs + ':' + minsStr
-    const dayPrefix = isNextDay ? '前一天 ' : '当天 '
-    const resultDisplay = dayPrefix + timeStr + ' ⏳'
+    // 开始时间 = 截止时间 - 总练兵时长
+    const totalMs = totalHours * 60 * 60 * 1000
+    const startDate = new Date(endDate.getTime() - totalMs)
 
-    const singleFixed = singleDuration.toFixed(4)
-    const finalVal = totalHours.toFixed(4)
-    const singleTimeStr = hours + ':' + this.pad2(minutes)
+    // 格式化输出
+    const yyyy = startDate.getFullYear()
+    const MM = this.pad2(startDate.getMonth() + 1)
+    const dd = this.pad2(startDate.getDate())
+    const hh = this.pad2(startDate.getHours())
+    const mm = this.pad2(startDate.getMinutes())
+
+    const totalH = Math.floor(totalHours)
+    const totalM = Math.round((totalHours - totalH) * 60)
+    const durationText = totalH + '小时' + (totalM > 0 ? totalM + '分钟' : '')
 
     this.setData({
-      resultDisplay,
-      formulaDetail: '📐 单次=' + singleTimeStr + ' → ' + singleFixed + 'h · 24-((' + singleFixed + '×3)-24) = ' + finalVal + ' 小时'
+      resultDisplay: yyyy + '-' + MM + '-' + dd + '  ' + hh + ':' + mm,
+      totalDurationText: durationText
     })
-  },
-
-  onLoad() {
-    this.doCalc(12, 35)
   },
 
   onShareAppMessage() {
@@ -85,3 +92,4 @@ Page({
     }
   }
 })
+

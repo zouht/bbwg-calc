@@ -63,6 +63,15 @@
 .footer-note {
   text-align: center; font-size: 22rpx; color: #6a8798; margin-top: 20rpx;
 }
+.date-group {
+  cursor: pointer;
+}
+.date-picker-val {
+  font-size: 32rpx; font-weight: 600; color: #0b2b38; min-width: 200rpx; text-align: right;
+}
+.result-sub {
+  font-size: 24rpx; color: #7bafc5; text-align: center; margin-top: 12rpx;
+}
 .footer-sponsor-container {
   display: flex; justify-content: center; margin-top: 20rpx;
 }

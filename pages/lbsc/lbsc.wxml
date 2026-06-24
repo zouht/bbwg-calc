@@ -2,11 +2,18 @@
   <view class="title-section">
     <navigator url="/pages/index/index" class="back-btn">← 返回主页</navigator>
     <view class="title-text">⚔️ 开始练兵时间 · 精密计算</view>
-    <view class="sub">单次练兵 → 总耗时 (24小时循环)</view>
+    <!-- <view class="sub">单次练兵时长 × 3 + 爆兵日日期 → 开始时间</view> -->
   </view>
- 
+
+  <view class="input-group date-group">
+    <text class="input-label">📅 爆兵日日期</text>
+    <picker mode="date" value="{{targetDate}}" bindchange="onDateChange">
+      <view class="date-picker-val">{{targetDate || '请选择日期'}}</view>
+    </picker>
+  </view>
+
   <view class="input-group">
-    <text class="input-label">⏱️ 单次练兵</text>
+    <text class="input-label">⏱️ 单兵营练兵时长</text>
     <view class="time-inputs">
       <input type="number" class="time-input" value="{{hours}}" bindinput="onHoursInput" />
       <text class="colon">:</text>
@@ -24,17 +31,11 @@
 
   <button class="calc-btn" bindtap="onCalc">⚡ 计算开始练兵时间 ⚡</button>
 
-  <view class="result-area">
-    <view class="result-label">📊 开始练兵时间 (公式结果)</view>
+  <view class="result-area" wx:if="{{resultDisplay}}">
+    <view class="result-label">📊 最晚开始练兵时间</view>
     <view class="result-value">{{resultDisplay}}</view>
-    <!-- <view class="detail-formula">{{formulaDetail}}</view> -->
+    <view class="result-sub">总练兵时长 {{totalDurationText}}</view>
   </view>
-
-  <!--
-  <view class="footer-note">
-    ※ 公式: 24 − [(单次练兵小时数 + 分钟/60) × 3 − 24]
-  </view>
-  -->
 
   <view class="footer-sponsor-container">
     <view class="sponsor-footer">🎖️ 113AKA 友情赞助 · 招移民落地送八级矿 🎖️</view>
