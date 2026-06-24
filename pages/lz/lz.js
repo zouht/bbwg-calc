@@ -71,25 +71,36 @@ Page({
   },
 
   onCurrChange(e) {
-    this.setData({ currIndex: e.detail.value })
+    this.setData({ currIndex: parseInt(e.detail.value, 10) })
   },
 
   onTargetChange(e) {
-    this.setData({ targetIndex: e.detail.value })
+    this.setData({ targetIndex: parseInt(e.detail.value, 10) })
   },
 
   onCalc() {
-    const currIdx = this.data.currIndex
-    const tarIdx = this.data.targetIndex
+    const currIdx = parseInt(this.data.currIndex, 10)
+    const tarIdx = parseInt(this.data.targetIndex, 10)
+
+    if (isNaN(currIdx) || isNaN(tarIdx)) {
+      this.setData({ errorMsg: '❌ 请选择有效的等级', showResult: false })
+      return
+    }
 
     if (tarIdx <= currIdx) {
       this.setData({ errorMsg: '❌ 目标等级不能低于或等于当前等级', showResult: false })
       return
     }
 
+    if (tarIdx >= lordData.length) {
+      this.setData({ errorMsg: '❌ 目标等级超出范围', showResult: false })
+      return
+    }
+
     let totalSilk = 0, totalThread = 0, totalPaper = 0, stepList = []
     for (let i = currIdx + 1; i <= tarIdx; i++) {
       const item = lordData[i]
+      if (!item) continue
       totalSilk += item.silk
       totalThread += item.thread
       totalPaper += item.paper
